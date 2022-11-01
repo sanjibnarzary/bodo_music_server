@@ -27,10 +27,11 @@ use App\Http\Controllers\API\SongController;
 use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\YouTubeController;
+use App\Http\Controllers\NewUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Pusher\Pusher;
-
+Route::prefix('api')->post('register', [NewUserController::class, 'register']);
 Route::prefix('api')->middleware('api')->group(static function (): void {
     Route::post('me', [AuthController::class, 'login'])->name('auth.login');
     Route::delete('me', [AuthController::class, 'logout']);
