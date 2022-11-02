@@ -47,8 +47,8 @@ class InitCommand extends Command
         $this->alert('KOEL INSTALLATION WIZARD');
         $this->info(
             'As a reminder, you can always install/upgrade manually following the guide at '
-            . config('koel.misc.docs_url')
-            . PHP_EOL
+                . config('koel.misc.docs_url')
+                . PHP_EOL
         );
 
         if ($this->inNoInteractionMode()) {
@@ -94,8 +94,8 @@ class InitCommand extends Command
 
         $this->info(
             "Feeling generous and want to support Koel's development? Check out "
-            . config('koel.misc.sponsor_github_url')
-            . ' 🤗'
+                . config('koel.misc.sponsor_github_url')
+                . ' 🤗'
         );
 
         $this->info('Thanks for using Koel. You rock! 🤘');
@@ -327,7 +327,8 @@ class InitCommand extends Command
             throw_if((bool) $status, InstallationFailedException::class);
         };
 
-        $runOkOrThrow('yarn install --colors');
+        //$runOkOrThrow('yarn install --colors');
+        $runOkOrThrow('yarn install');
         $this->components->info('Compiling assets');
         $runOkOrThrow('yarn build');
     }
